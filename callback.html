@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Authorization — Cursed Clips AutoPost</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="texto">
+  <h1>Authorization received</h1>
+  <p>Copy the full address below and paste it back into the Cursed Clips AutoPost setup tool, then close this page.</p>
+  <p><textarea id="url" readonly rows="4" style="width:100%;font:14px Consolas,monospace;background:#151517;color:#d8d4cf;border:1px solid #333;padding:8px"></textarea></p>
+  <p><button id="copiar" style="padding:8px 16px;cursor:pointer">Copy address</button> <span id="ok"></span></p>
+</main>
+<script>
+  const campo = document.getElementById("url");
+  campo.value = location.href;
+  document.getElementById("copiar").onclick = () => {
+    campo.select();
+    navigator.clipboard.writeText(location.href).then(() => (document.getElementById("ok").textContent = "Copied"));
+  };
+</script>
+</body>
+</html>
